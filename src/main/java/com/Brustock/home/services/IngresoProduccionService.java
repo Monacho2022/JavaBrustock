@@ -14,5 +14,5 @@ public interface IngresoProduccionService {
     IngresoProduccion newIngresoProduccion (IngresoProduccion newIngresoProduccion);
     Iterable<IngresoProduccion> getAll();
     IngresoProduccion modifyAprendiz (IngresoProduccion ingresoProduccion);
-    boolean deleteAprendiz (Long referencia);    
+    boolean deleteAprendiz (Long iduser);    
 }
