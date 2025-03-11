@@ -16,4 +16,6 @@ public interface ProduccionService {
     Iterable<Produccion> getAll();
     Produccion modifyAprendiz (Produccion produccion);
     boolean deleteAprendiz (Long idreferencia);     
+
+    public Produccion modifyProduccion(Produccion produccion);
 }

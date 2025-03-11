@@ -6,8 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
+
 @Service
-public class IngresoProduccionServiceImpl implements IngresoProduccionService {
+public abstract class IngresoProduccionServiceImpl implements IngresoProduccionService {
 
     @Autowired
     private IngresoProduccionRepository ingresoProduccionRepository;
@@ -22,25 +25,17 @@ public class IngresoProduccionServiceImpl implements IngresoProduccionService {
         return ingresoProduccionRepository.findAll();
     }
 
-    @Override
-    public IngresoProduccion modifyIngresoProduccion(IngresoProduccion ingresoProduccion) { 
-        Optional<IngresoProduccion> ingresoProduccionEncontrado = ingresoProduccionRepository.findById(ingresoProduccion.getIduser());
-
-        if (ingresoProduccionEncontrado.isPresent()) {
-            IngresoProduccion ingresoExistente = ingresoProduccionEncontrado.get();
-            ingresoExistente.setReferencia(ingresoProduccion.getReferencia());
-            ingresoExistente.setDescripcion(ingresoProduccion.getDescripcion());
-            ingresoExistente.setProceso(ingresoProduccion.getProceso());
-            ingresoExistente.setTalla(ingresoProduccion.getTalla());
-            ingresoExistente.setColor(ingresoProduccion.getColor());
-            ingresoExistente.setFecha(ingresoProduccion.getFecha());
-
+    public IngresoProduccion modifyIngresoProduccion(IngresoProduccion ingresoProduccion) {
+        Optional<IngresoProduccion> ingresoEncontrado; // Cambio aquí
+        ingresoEncontrado = ingresoProduccionRepository.findById(ingresoProduccion.getidUser());
+        if (ingresoEncontrado.isPresent()) {
+            IngresoProduccion ingresoExistente = ingresoEncontrado.get();
+            ingresoExistente.setIdUser(ingresoProduccion.getidUser()); // Cambio aquí si es necesario
             return ingresoProduccionRepository.save(ingresoExistente);
         }
         return null;
-    }    
+    }
 
-    @Override
     public boolean deleteIngresoProduccion(Long iduser) {
         if (ingresoProduccionRepository.existsById(iduser)) {
             ingresoProduccionRepository.deleteById(iduser);
@@ -49,14 +44,8 @@ public class IngresoProduccionServiceImpl implements IngresoProduccionService {
         return false;
     }
 
-    @Override
-    public IngresoProduccion modifyAprendiz(IngresoProduccion ingresoProduccion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
-    @Override
-    public boolean deleteAprendiz(Long iduser) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
 }
 

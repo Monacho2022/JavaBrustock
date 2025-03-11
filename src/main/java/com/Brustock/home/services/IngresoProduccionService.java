@@ -15,4 +15,8 @@ public interface IngresoProduccionService {
     Iterable<IngresoProduccion> getAll();
     IngresoProduccion modifyAprendiz (IngresoProduccion ingresoProduccion);
     boolean deleteAprendiz (Long iduser);    
+
+    public IngresoProduccion modifyIngresoProduccion(IngresoProduccion ingresoProduccion);
+
+    public boolean deleteIngresoProduccion(Long id);
 }
