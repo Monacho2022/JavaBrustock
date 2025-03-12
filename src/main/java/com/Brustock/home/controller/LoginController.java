@@ -18,6 +18,11 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
     
+    @PostMapping("/nuevo")
+    public Login newLogin(@RequestBody Login newLogin){
+        return this.loginService.newLogin(newLogin);
+    }
+    
     @GetMapping("/mostrar")
     public Iterable<Login> getAll(){
         return loginService.getAll();

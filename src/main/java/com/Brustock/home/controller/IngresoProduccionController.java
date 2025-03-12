@@ -14,6 +14,11 @@ public class IngresoProduccionController {
     @Autowired
     private IngresoProduccionService ingresoProduccionService;
     
+    @PostMapping("/nuevo")
+    public IngresoProduccion newIngresoProduccion(@RequestBody IngresoProduccion newIngresoProduccion){
+        return this.ingresoProduccionService.newIngresoProduccion(newIngresoProduccion);
+    }
+    
     @GetMapping("/mostrar")
     public Iterable<IngresoProduccion> getAll(){
         return ingresoProduccionService.getAll();

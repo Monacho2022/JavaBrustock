@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProduccionController {
      @Autowired
     private ProduccionService produccionService;
+     
+     @PostMapping("/nuevo")
+    public Produccion newProduccion(@RequestBody Produccion newProduccion){
+        return this.produccionService.newProduccion(newProduccion);
+    }
     
     @GetMapping("/mostrar")
     public Iterable<Produccion> getAll(){
