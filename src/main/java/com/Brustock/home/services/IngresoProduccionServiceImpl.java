@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public abstract class IngresoProduccionServiceImpl implements IngresoProduccionService {
+public class IngresoProduccionServiceImpl implements IngresoProduccionService {
 
     @Autowired
     private IngresoProduccionRepository ingresoProduccionRepository;
@@ -25,20 +25,22 @@ public abstract class IngresoProduccionServiceImpl implements IngresoProduccionS
         return ingresoProduccionRepository.findAll();
     }
 
+    @Override
     public IngresoProduccion modifyIngresoProduccion(IngresoProduccion ingresoProduccion) {
         Optional<IngresoProduccion> ingresoEncontrado; // Cambio aquí
-        ingresoEncontrado = ingresoProduccionRepository.findById(ingresoProduccion.getidUser());
+        ingresoEncontrado = ingresoProduccionRepository.findById(ingresoProduccion.getReferencia());
         if (ingresoEncontrado.isPresent()) {
             IngresoProduccion ingresoExistente = ingresoEncontrado.get();
-            ingresoExistente.setIdUser(ingresoProduccion.getidUser()); // Cambio aquí si es necesario
+            ingresoExistente.setReferencia(ingresoProduccion.getReferencia()); // Cambio aquí si es necesario
             return ingresoProduccionRepository.save(ingresoExistente);
         }
         return null;
     }
 
-    public boolean deleteIngresoProduccion(Long iduser) {
-        if (ingresoProduccionRepository.existsById(iduser)) {
-            ingresoProduccionRepository.deleteById(iduser);
+    @Override
+    public boolean deleteIngresoProduccion(Long referencia) {
+        if (ingresoProduccionRepository.existsById(referencia)) {
+            ingresoProduccionRepository.deleteById(referencia);
             return true;
         }
         return false;

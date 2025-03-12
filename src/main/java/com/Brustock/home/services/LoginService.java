@@ -13,6 +13,6 @@ import com.Brustock.home.model.Login;
 public interface LoginService {
     Login newLogin (Login newLogin);
     Iterable<Login> getAll();
-    Login modifyAprendiz (Login login);
-    boolean deleteAprendiz (Long user);    
+    Login modifyLogin (Login login);
+    boolean deleteLogin (Long user);    
 }

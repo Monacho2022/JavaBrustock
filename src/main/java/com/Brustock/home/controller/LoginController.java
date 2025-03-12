@@ -23,11 +23,11 @@ public class LoginController {
         return loginService.getAll();
     }    
     @PostMapping("/modificar")
-    public Login updateAprendiz(@RequestBody Login login){
-        return this.loginService.modifyAprendiz(login);
+    public Login updateLogin(@RequestBody Login login){
+        return this.loginService.modifyLogin(login);
     }
     @PostMapping (value="/{id}")
     public boolean deleteLogin(@PathVariable(value="id")Long id){
-        return this.loginService.deleteAprendiz(id);
+        return this.loginService.deleteLogin(id);
     }
 }

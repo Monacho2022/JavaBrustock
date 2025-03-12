@@ -13,10 +13,8 @@ import com.Brustock.home.model.IngresoProduccion;
 public interface IngresoProduccionService {
     IngresoProduccion newIngresoProduccion (IngresoProduccion newIngresoProduccion);
     Iterable<IngresoProduccion> getAll();
-    IngresoProduccion modifyAprendiz (IngresoProduccion ingresoProduccion);
-    boolean deleteAprendiz (Long iduser);    
-
-    public IngresoProduccion modifyIngresoProduccion(IngresoProduccion ingresoProduccion);
-
-    public boolean deleteIngresoProduccion(Long id);
+    IngresoProduccion modifyIngresoProduccion (IngresoProduccion ingresoProduccion);
+    boolean deleteIngresoProduccion (Long referencia); 
+    
+    
 }

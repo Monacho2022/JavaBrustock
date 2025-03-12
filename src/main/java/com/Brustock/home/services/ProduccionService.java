@@ -12,10 +12,10 @@ import com.Brustock.home.model.Produccion;
  * @author maniz
  */
 public interface ProduccionService {
-     Produccion newProduccion (Produccion newProduccion);
+    Produccion newProduccion (Produccion newProduccion);
     Iterable<Produccion> getAll();
-    Produccion modifyAprendiz (Produccion produccion);
-    boolean deleteAprendiz (Long idreferencia);     
+    Produccion modifyProduccion (Produccion produccion);
+    boolean deleteProduccion (Long idreferencia);     
 
-    public Produccion modifyProduccion(Produccion produccion);
+    
 }

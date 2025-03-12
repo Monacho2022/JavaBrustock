@@ -27,7 +27,7 @@ public class ProduccionController {
     }
     @PostMapping (value="/{id}")
     public boolean deleteProduccion(@PathVariable(value="id")Long id){
-        return this.produccionService.deleteAprendiz(id);
+        return this.produccionService.deleteProduccion(id);
     }
     
 }

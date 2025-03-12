@@ -57,6 +57,7 @@
             <artifactId>lombok</artifactId> <!-- Usa la última versión disponible -->
             <version>1.18.36</version>
             <type>jar</type>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
