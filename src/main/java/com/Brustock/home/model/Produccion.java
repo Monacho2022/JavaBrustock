@@ -1,24 +1,14 @@
 package com.Brustock.home.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "produccion") // Opcional, si el nombre de la tabla es diferente al de la clase
 public class Produccion {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReferencia;
-
     private String procesoP;
     private String tallasE;
     private String tallasR;
+    private IngresoProduccion ingresoProduccion; // Agrega esta línea
 
-    // Getters y setters
+    // Getters y setters para idReferencia, procesoP, tallasE, tallasR
     public Long getIdReferencia() {
         return idReferencia;
     }
@@ -49,5 +39,14 @@ public class Produccion {
 
     public void setTallasR(String tallasR) {
         this.tallasR = tallasR;
+    }
+
+    // Getter y setter para ingresoProduccion
+    public IngresoProduccion getIngresoProduccion() {
+        return ingresoProduccion;
+    }
+
+    public void setIngresoProduccion(IngresoProduccion ingresoProduccion) {
+        this.ingresoProduccion = ingresoProduccion;
     }
 }

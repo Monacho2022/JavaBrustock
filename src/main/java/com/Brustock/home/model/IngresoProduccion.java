@@ -1,30 +1,34 @@
-
 package com.Brustock.home.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@Entity
-@Data
+@SpringBootApplication
+@EntityScan(basePackages = "com.Brustock.home.model")
 public class IngresoProduccion {
-    @Id
-    @Column
-    private Long referencia;  // Clave primaria
-
-    @Column
+    private Long idReferencia;
+    private String referencia;
     private String descripcion;
-
-    @Column
     private String proceso;
-
-    @Column
     private String talla;
-
-    @Column
     private String color;
-
-    @Column
     private String fecha;
+
+    // Getters
+    public Long getIdReferencia() { return idReferencia; }
+    public String getReferencia() { return referencia; }
+    public String getDescripcion() { return descripcion; }
+    public String getProceso() { return proceso; }
+    public String getTalla() { return talla; }
+    public String getColor() { return color; }
+    public String getFecha() { return fecha; }
+
+    // Setters
+    public void setIdReferencia(Long idReferencia) { this.idReferencia = idReferencia; }
+    public void setReferencia(String referencia) { this.referencia = referencia; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public void setProceso(String proceso) { this.proceso = proceso; }
+    public void setTalla(String talla) { this.talla = talla; }
+    public void setColor(String color) { this.color = color; }
+    public void setFecha(String fecha) { this.fecha = fecha; }
 }

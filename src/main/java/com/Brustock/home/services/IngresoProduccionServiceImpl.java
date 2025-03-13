@@ -6,9 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-
-
 @Service
 public class IngresoProduccionServiceImpl implements IngresoProduccionService {
 
@@ -27,11 +24,20 @@ public class IngresoProduccionServiceImpl implements IngresoProduccionService {
 
     @Override
     public IngresoProduccion modifyIngresoProduccion(IngresoProduccion ingresoProduccion) {
-        Optional<IngresoProduccion> ingresoEncontrado; // Cambio aquí
-        ingresoEncontrado = ingresoProduccionRepository.findById(ingresoProduccion.getReferencia());
+        Optional<IngresoProduccion> ingresoEncontrado;
+
+        // Convertimos referencia a Long para buscar en el repositorio
+        ingresoEncontrado = ingresoProduccionRepository.findById(Long.parseLong(ingresoProduccion.getReferencia()));
+
         if (ingresoEncontrado.isPresent()) {
             IngresoProduccion ingresoExistente = ingresoEncontrado.get();
-            ingresoExistente.setReferencia(ingresoProduccion.getReferencia()); // Cambio aquí si es necesario
+            ingresoExistente.setReferencia(ingresoProduccion.getReferencia());
+            ingresoExistente.setDescripcion(ingresoProduccion.getDescripcion());
+            ingresoExistente.setProceso(ingresoProduccion.getProceso());
+            ingresoExistente.setTalla(ingresoProduccion.getTalla());
+            ingresoExistente.setColor(ingresoProduccion.getColor());
+            ingresoExistente.setFecha(ingresoProduccion.getFecha());
+
             return ingresoProduccionRepository.save(ingresoExistente);
         }
         return null;
@@ -46,8 +52,4 @@ public class IngresoProduccionServiceImpl implements IngresoProduccionService {
         return false;
     }
 
-    
-
-  
 }
-

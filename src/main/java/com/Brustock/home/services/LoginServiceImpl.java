@@ -22,18 +22,20 @@ public class LoginServiceImpl implements LoginService {
         return loginRepository.findAll();
     }
 
+    @Override
     public Login modifyLogin(Login login) {
-        Optional<Login> loginEncontrado = loginRepository.findById(login.getId()); // Cambio aquí
+        Optional<Login> loginEncontrado = loginRepository.findById(login.getId()); 
         if (loginEncontrado.isPresent()) {
             Login loginExistente = loginEncontrado.get();
             loginExistente.setId(login.getId());
-            loginExistente.setUser(login.getUser()); // Cambio aquí
-            loginExistente.setPassword(login.getPassword()); // Cambio aquí
+            loginExistente.setUser(login.getUser()); 
+            loginExistente.setPassword(login.getPassword()); 
             return loginRepository.save(loginExistente);
         }
         return null;
     }
 
+    @Override
     public boolean deleteLogin(Long id) {
         if (loginRepository.existsById(id)) { // Verifica si el usuario existe antes de eliminarlo
             loginRepository.deleteById(id);

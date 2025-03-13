@@ -6,6 +6,7 @@ package com.Brustock.home.services;
 
 
 import com.Brustock.home.model.Produccion;
+import java.util.List;
 
 /**
  *
@@ -13,7 +14,7 @@ import com.Brustock.home.model.Produccion;
  */
 public interface ProduccionService {
     Produccion newProduccion (Produccion newProduccion);
-    Iterable<Produccion> getAll();
+    List<Produccion> getAll();
     Produccion modifyProduccion (Produccion produccion);
     boolean deleteProduccion (Long idreferencia);     
 
