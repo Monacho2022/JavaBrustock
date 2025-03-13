@@ -23,9 +23,10 @@ public class LoginServiceImpl implements LoginService {
     }
 
     public Login modifyLogin(Login login) {
-        Optional<Login> loginEncontrado = loginRepository.findById(login.getUser()); // Cambio aquí
+        Optional<Login> loginEncontrado = loginRepository.findById(login.getId()); // Cambio aquí
         if (loginEncontrado.isPresent()) {
             Login loginExistente = loginEncontrado.get();
+            loginExistente.setId(login.getId());
             loginExistente.setUser(login.getUser()); // Cambio aquí
             loginExistente.setPassword(login.getPassword()); // Cambio aquí
             return loginRepository.save(loginExistente);
@@ -33,9 +34,9 @@ public class LoginServiceImpl implements LoginService {
         return null;
     }
 
-    public boolean deleteLogin(Long user) {
-        if (loginRepository.existsById(user)) { // Verifica si el usuario existe antes de eliminarlo
-            loginRepository.deleteById(user);
+    public boolean deleteLogin(Long id) {
+        if (loginRepository.existsById(id)) { // Verifica si el usuario existe antes de eliminarlo
+            loginRepository.deleteById(id);
             return true;
         }
         return false;

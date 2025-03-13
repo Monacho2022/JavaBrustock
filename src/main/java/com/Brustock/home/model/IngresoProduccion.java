@@ -11,20 +11,20 @@ import lombok.Data;
 public class IngresoProduccion {
     @Id
     @Column
-    private Long referencia;
-    
+    private Long referencia;  // Clave primaria
+
     @Column
     private String descripcion;
-    
+
     @Column
     private String proceso;
-    
+
     @Column
     private String talla;
-    
+
     @Column
     private String color;
-    
+
     @Column
     private String fecha;
 }

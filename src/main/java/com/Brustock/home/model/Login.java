@@ -1,20 +1,25 @@
 
 package com.Brustock.home.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
+import jakarta.persistence.*;
 
 @Entity
-@Data
-
+@Table(name = "login")
+@Data  // <-- Lombok genera automáticamente getters, setters, toString, equals, y hashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class Login {
     @Id
-    @Column    
-    private Long user;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
-    @Column
+    @Column(nullable = false, unique = true)
+    private String user;
+
+    @Column(nullable = false)
     private String password;
-    
 }
